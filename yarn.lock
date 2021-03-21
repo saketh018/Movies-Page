@@ -6846,6 +6846,11 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+loadash@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/loadash/-/loadash-1.0.0.tgz#b92e54d809f3c225f4f9a9cfbaeae5b56de1ca9f"
+  integrity sha512-xlX5HBsXB3KG0FJbJJG/3kYWCfsCyCSus3T+uHVu6QL6YxAdggmm3QeyLgn54N2yi5/UE6xxL5ZWJAAiHzHYEg==
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
@@ -8774,6 +8779,11 @@ prop-types@^15.7.2:
     loose-envify "^1.4.0"
     object-assign "^4.1.1"
     react-is "^16.8.1"
+
+props-type@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/props-type/-/props-type-1.0.1.tgz#9764ae1b1be01095412112b586d7f823730c6afa"
+  integrity sha512-Jc84Wrxp8yje+3OaOTLNqsnuWSuAlopobmqk4KVxUGbZ5WbQJm3YoPQDxZiSIaHLA9CTavD45TOIm8u5wwoO2g==
 
 proxy-addr@~2.0.5:
   version "2.0.6"
