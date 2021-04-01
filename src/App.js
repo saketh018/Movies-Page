@@ -7,6 +7,7 @@ import NotFound from './components/notFound';
 import Rentals from './components/rentals';
 import NavBar from './components/navbar';
 import MovieForm from './components/movieForm';
+import LoginForm from './components/loginForm';
 class App extends Component {
   render() { 
     return (
@@ -19,6 +20,7 @@ class App extends Component {
       <Route path="/customers" component={Customers}/>
       <Route path="/rentals" component={Rentals}/>
       <Route path="/not-found" component={NotFound}/>
+      <Route path="/login" component={LoginForm}/>
       <Redirect from ="/" exact to ="/movies" />
       <Redirect to="/notFound"/>
       </Switch>
