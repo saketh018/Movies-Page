@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import MoviesTable from "./moviesTable";
 import ListGroup from "../common/listGroup";
 import Pagination from "../common/pagination";
-import { getMovies } from "../services/fakeMovieService";
+import { getMovies,deleteMovie } from "../services/movieService";
 import { getGenres } from "../services/genreService";
 import  paginate  from "../utils/pagination";
 import _ from "lodash";
-
-
 class Movies extends Component {
   state = {
     movies: [],
@@ -19,9 +17,10 @@ class Movies extends Component {
 
   async componentDidMount() {
     const {data} = await getGenres();
+    const {data:movies} = await getMovies();
     const genres = [{ _id: "", name: "All Genres" },...data];
 
-    this.setState({ movies: getMovies(), genres });
+    this.setState({ movies, genres });
   }
 
   handleDelete = movie => {
@@ -54,14 +53,18 @@ class Movies extends Component {
       pageSize,
       currentPage,
       sortColumn,
+      searchQuery,
       selectedGenre,
       movies: allMovies
     } = this.state;
 
-    const filtered =
-      selectedGenre && selectedGenre._id
-        ? allMovies.filter(m => m.genre._id === selectedGenre._id)
-        : allMovies;
+    let filtered = allMovies;
+    if (searchQuery)
+      filtered = allMovies.filter(m =>
+        m.title.toLowerCase().startsWith(searchQuery.toLowerCase())
+      );
+    else if (selectedGenre && selectedGenre._id)
+      filtered = allMovies.filter(m => m.genre._id === selectedGenre._id);
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
